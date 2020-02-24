@@ -20,13 +20,9 @@ class FishingRodManagerTest extends BaseFishingRodManagerTest {
     @Test
     public void findFishingRodForSeason(){
         List<AbstractFishingRod> abstractFishingRods = fishingRodManager.findFishingRodForSeason(Season.SUMMER);
-        assertEquals(2, fishingRods.size());
-
-        //sort result
-
-        // verify fishing rods season
-        assertEquals(Season.SUMMER, fishingRods.get(0).getSeason());
-        assertEquals(Season.SUMMER, fishingRods.get(1).getSeason());
+        assertEquals(2, abstractFishingRods.size());
+        assertEquals(Season.SUMMER, abstractFishingRods.get(0).getSeason());
+        assertEquals(Season.SUMMER, abstractFishingRods.get(1).getSeason());
 
     }
 
