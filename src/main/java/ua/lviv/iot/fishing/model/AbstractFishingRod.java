@@ -1,20 +1,18 @@
 package ua.lviv.iot.fishing.model;
 
-public abstract class AbstractFishingRod {
+public abstract class AbstractFishingRod implements Comparable<AbstractFishingRod> {
 
     private float lengthInMeters;
     private Season season;
     private float foldedLengthInMeters;
     private int numberOfSection;
-    private String material;
     private float weightInKg;
 
-    public AbstractFishingRod(float lengthInMeters, Season season, float foldedLengthInMeters, int numberOfSection, String material, float weightInKg) {
+    public AbstractFishingRod(float lengthInMeters, Season season, float foldedLengthInMeters, int numberOfSection, float weightInKg) {
         this.lengthInMeters = lengthInMeters;
         this.season = season;
         this.foldedLengthInMeters = foldedLengthInMeters;
         this.numberOfSection = numberOfSection;
-        this.material = material;
         this.weightInKg = weightInKg;
     }
 
@@ -29,5 +27,21 @@ public abstract class AbstractFishingRod {
     public int getNumberOfSection() {
         return numberOfSection;
     }
+
+    public float getWeightInKg() {
+        return weightInKg;
+    }
+
+    public float getFoldedLengthInMeters() {
+        return foldedLengthInMeters;
+    }
+
+    @Override
+    public int compareTo(AbstractFishingRod another) {
+        return Float.compare(this.getLengthInMeters(), another.getLengthInMeters());
+    }
+
+
+
 
 }

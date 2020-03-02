@@ -23,7 +23,6 @@ class FishingRodManagerTest extends BaseFishingRodManagerTest {
         assertEquals(2, abstractFishingRods.size());
         assertEquals(Season.SUMMER, abstractFishingRods.get(0).getSeason());
         assertEquals(Season.SUMMER, abstractFishingRods.get(1).getSeason());
-
     }
 
 

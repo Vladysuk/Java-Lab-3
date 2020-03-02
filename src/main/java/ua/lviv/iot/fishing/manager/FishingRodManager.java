@@ -1,10 +1,9 @@
 package ua.lviv.iot.fishing.manager;
 
-import ua.lviv.iot.fishing.model.AbstractFishingRod;
-import ua.lviv.iot.fishing.model.Season;
-
 import java.util.LinkedList;
 import java.util.List;
+import ua.lviv.iot.fishing.model.AbstractFishingRod;
+import ua.lviv.iot.fishing.model.Season;
 
 public class FishingRodManager {
 
@@ -20,6 +19,7 @@ public class FishingRodManager {
     public void addFishingRods(List<AbstractFishingRod> fishingRods) {
         this.fishingRods.addAll(fishingRods);
     }
+
     public void addFishingRod(AbstractFishingRod fishingRod) {
         this.fishingRods.add(fishingRod);
     }
@@ -27,9 +27,8 @@ public class FishingRodManager {
     public List<AbstractFishingRod> findFishingRodForSeason(Season season) {
 
         List<AbstractFishingRod> result = new LinkedList<>();
-        for (AbstractFishingRod fishingRod: fishingRods)
-        {
-            if(fishingRod.getSeason() == season){
+        for (AbstractFishingRod fishingRod: fishingRods) {
+            if (fishingRod.getSeason() == season) {
                 result.add(fishingRod);
             }
         }
