@@ -41,7 +41,15 @@ public abstract class AbstractFishingRod implements Comparable<AbstractFishingRo
         return Float.compare(this.getLengthInMeters(), another.getLengthInMeters());
     }
 
+    public String getHeaders() {
+        return "lengthInMeters, season, foldedLengthInMeters, numberOfSection, weightInKg";
+    }
 
+    public String toCSV() {
+        return "lengthInMeters = " + getLengthInMeters() + ", " + "season = " + getSeason() + ", "
+                + "foldedLengthInMeters = " + getFoldedLengthInMeters() + ", " + "numberOfSection = " + getNumberOfSection() + ", "
+                + "weightInKg = " + getWeightInKg();
+    }
 
 
 }
