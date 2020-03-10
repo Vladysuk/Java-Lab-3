@@ -1,0 +1,3 @@
+lengthInMeters, season, foldedLengthInMeters, numberOfSection, weightInKg, typeOfWobbler, lengthInMeters = 2.5, season = SUMMER, foldedLengthInMeters = 0.5, numberOfSection = 3, weightInKg = 0.9, typeOfWobbler = 
+lengthInMeters, season, foldedLengthInMeters, numberOfSection, weightInKg, typeOfFishingFloat, lengthInMeters = 3.3, season = SUMMER, foldedLengthInMeters = 1.0, numberOfSection = 5, weightInKg = 0.5, typeOfFishingFloat = 
+lengthInMeters, season, foldedLengthInMeters, numberOfSection, weightInKg, typeOfFishingLure, lengthInMeters = 1.2, season = WINTER, foldedLengthInMeters = 0.3, numberOfSection = 4, weightInKg = 0.8, typeOfFishingLure = 
