@@ -7,6 +7,7 @@ public abstract class AbstractFishingRod implements Comparable<AbstractFishingRo
     private float foldedLengthInMeters;
     private int numberOfSection;
     private float weightInKg;
+    private Integer id;
 
     public AbstractFishingRod(float lengthInMeters, Season season, float foldedLengthInMeters, int numberOfSection, float weightInKg) {
         this.lengthInMeters = lengthInMeters;
@@ -14,6 +15,18 @@ public abstract class AbstractFishingRod implements Comparable<AbstractFishingRo
         this.foldedLengthInMeters = foldedLengthInMeters;
         this.numberOfSection = numberOfSection;
         this.weightInKg = weightInKg;
+    }
+    public AbstractFishingRod(){
+        this(0, Season.WINTER, 0, 0, 0);
+    }
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public float getLengthInMeters() {
