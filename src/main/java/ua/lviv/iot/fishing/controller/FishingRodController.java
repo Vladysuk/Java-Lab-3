@@ -30,9 +30,14 @@ public class FishingRodController {
     }
 
     @PutMapping(path = "{id}")
-    public IceRod putIceRod(final @PathVariable("id") Integer id, final @RequestBody IceRod iceRod) {
+    public ResponseEntity<Object> putIceRod(final @PathVariable("id") Integer id, final @RequestBody IceRod iceRod) {
         iceRod.setId(id);
-        return iceRods.put(id, iceRod);
+        if (iceRods.containsKey(id)) {
+            return ResponseEntity.ok(iceRods.put(id, iceRod));
+        }
+        else{
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @DeleteMapping(path = "{id}")
