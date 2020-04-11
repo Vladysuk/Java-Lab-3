@@ -18,7 +18,7 @@ public class FloatRod extends AbstractFishingRod {
     }
 
     public String toCSV() {
-        return super.toCSV() + ", " +  "typeOfFishingFloat = " + getTypeOfFishingFloat();
+        return super.toCSV() + ", " + "typeOfFishingFloat = " + getTypeOfFishingFloat();
     }
 
 }

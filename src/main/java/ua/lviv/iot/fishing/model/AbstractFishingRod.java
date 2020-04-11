@@ -1,13 +1,22 @@
 package ua.lviv.iot.fishing.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public abstract class AbstractFishingRod implements Comparable<AbstractFishingRod> {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     private float lengthInMeters;
     private Season season;
     private float foldedLengthInMeters;
     private int numberOfSection;
     private float weightInKg;
-    private Integer id;
 
     public AbstractFishingRod(float lengthInMeters, Season season, float foldedLengthInMeters, int numberOfSection, float weightInKg) {
         this.lengthInMeters = lengthInMeters;
@@ -16,17 +25,9 @@ public abstract class AbstractFishingRod implements Comparable<AbstractFishingRo
         this.numberOfSection = numberOfSection;
         this.weightInKg = weightInKg;
     }
-    public AbstractFishingRod(){
+
+    public AbstractFishingRod() {
         this(0, Season.WINTER, 0, 0, 0);
-    }
-
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public float getLengthInMeters() {
@@ -58,11 +59,18 @@ public abstract class AbstractFishingRod implements Comparable<AbstractFishingRo
         return "lengthInMeters, season, foldedLengthInMeters, numberOfSection, weightInKg";
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String toCSV() {
         return "lengthInMeters = " + getLengthInMeters() + ", " + "season = " + getSeason() + ", "
                 + "foldedLengthInMeters = " + getFoldedLengthInMeters() + ", " + "numberOfSection = " + getNumberOfSection() + ", "
                 + "weightInKg = " + getWeightInKg();
     }
-
 
 }
