@@ -1,9 +1,9 @@
 package ua.lviv.iot.fishing.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public abstract class AbstractFishingRod implements Comparable<AbstractFishingRod> {
@@ -12,18 +12,34 @@ public abstract class AbstractFishingRod implements Comparable<AbstractFishingRo
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private float lengthInMeters;
+    @ManyToOne
+    @JoinColumn(name = "iceRodSet_id")
+    @JsonIgnoreProperties("iceRods")
+    private IceRodSet iceRodSet;
+
+    @ManyToMany(mappedBy = "iceRods")
+    @JsonIgnoreProperties("iceRods")
+    private Set<IceRodShop> iceRodShops;
+
+    @Enumerated(EnumType.STRING)
     private Season season;
+
+    private float lengthInMeters;
     private float foldedLengthInMeters;
     private int numberOfSection;
     private float weightInKg;
 
-    public AbstractFishingRod(float lengthInMeters, Season season, float foldedLengthInMeters, int numberOfSection, float weightInKg) {
+    public AbstractFishingRod(float lengthInMeters, Season season, float foldedLengthInMeters, int numberOfSection, float weightInKg, IceRodSet iceRodSet) {
         this.lengthInMeters = lengthInMeters;
         this.season = season;
         this.foldedLengthInMeters = foldedLengthInMeters;
         this.numberOfSection = numberOfSection;
         this.weightInKg = weightInKg;
+        this.iceRodSet = iceRodSet;
+    }
+
+    public AbstractFishingRod(float lengthInMeters, Season season, float foldedLengthInMeters, int numberOfSection, float weightInKg) {
+        this(lengthInMeters, season, foldedLengthInMeters, numberOfSection, weightInKg, null);
     }
 
     public AbstractFishingRod() {
@@ -48,6 +64,22 @@ public abstract class AbstractFishingRod implements Comparable<AbstractFishingRo
 
     public float getFoldedLengthInMeters() {
         return foldedLengthInMeters;
+    }
+
+    public IceRodSet getIceRodSet() {
+        return iceRodSet;
+    }
+
+    public void setIceRodSet(IceRodSet iceRodSet) {
+        this.iceRodSet = iceRodSet;
+    }
+
+    public Set<IceRodShop> getIceRodShops() {
+        return iceRodShops;
+    }
+
+    public void setIceRodShops(Set<IceRodShop> iceRodShops) {
+        this.iceRodShops = iceRodShops;
     }
 
     @Override
