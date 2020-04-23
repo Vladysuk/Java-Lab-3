@@ -10,8 +10,8 @@ public class IceRod extends AbstractFishingRod {
     public IceRod() {
     }
 
-    public IceRod(float lengthInMeters, Season season, float foldedLengthInMeters, int numberOfSection, float weightInKg, String typeOfFishingLure) {
-        super(lengthInMeters, season, foldedLengthInMeters, numberOfSection, weightInKg);
+    public IceRod(float lengthInMeters, Season season, float foldedLengthInMeters, int numberOfSection, float weightInKg, String typeOfFishingLure, IceRodSet iceRodSet) {
+        super(lengthInMeters, season, foldedLengthInMeters, numberOfSection, weightInKg, iceRodSet);
         this.typeOfFishingLure = typeOfFishingLure;
     }
 
@@ -26,4 +26,5 @@ public class IceRod extends AbstractFishingRod {
     public String toCSV() {
         return super.toCSV() + ", " + "typeOfFishingLure = " + getTypeOfFishingLure();
     }
+
 }
