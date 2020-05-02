@@ -35,7 +35,7 @@ public class FishingRodController {
             returnedIceRod.setId(id);
             iceRod.setId(id);
             iceRodService.update(iceRod);
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok(returnedIceRod);
         }
         return ResponseEntity.notFound().build();
     }
@@ -55,6 +55,5 @@ public class FishingRodController {
         iceRodService.create(iceRod);
         return iceRod;
     }
-
 
 }

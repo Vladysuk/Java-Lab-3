@@ -9,7 +9,6 @@ import ua.lviv.iot.fishing.service.IceRodShopService;
 
 import java.util.ArrayList;
 
-
 @RequestMapping("/IceRodShop")
 @RestController
 public class IceRodShopController {
@@ -55,6 +54,5 @@ public class IceRodShopController {
         iceRodShopService.create(iceRodShop);
         return iceRodShop;
     }
-
 
 }

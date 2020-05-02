@@ -59,5 +59,6 @@ public class IceRodSet {
     public void setIceRods(Set<IceRod> iceRods) {
         this.iceRods = iceRods;
     }
+
 }
 
